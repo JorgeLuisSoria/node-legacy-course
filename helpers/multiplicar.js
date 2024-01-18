@@ -1,19 +1,22 @@
 const fs = require('fs');
+const { options, argv } = require('yargs');
 
-const crearArchivo = async( base = 5 ) => {
+
+const crearArchivo = async( base = 5, listar=true ) => {
 
     try {
-        console.log('=======================');
-        console.log('   Tabla del:', base    );
-        console.log('=======================');
-    
+        if( listar ) {
+            console.log('=======================');
+            console.log('   Tabla del:', base    );
+            console.log('=======================');
+        }
         let salida = '';
     
         for( let i = 1; i <= 10; i++ ) {
             salida += `${ base } x ${ i } = ${ base * i }\n`;
         }
-    
-        console.log( salida );
+        
+        if( listar ) { console.log( salida ) };        
     
         fs.writeFileSync( `tabla-${ base }.txt`, salida );
     
