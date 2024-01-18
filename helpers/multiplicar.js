@@ -2,17 +2,17 @@ const fs = require('fs');
 const { options, argv } = require('yargs');
 
 
-const crearArchivo = async( base = 5, listar=true ) => {
+const crearArchivo = async( base = 5, listar = true, hasta = 10 ) => {
 
     try {
         if( listar ) {
-            console.log('=======================');
-            console.log('   Tabla del:', base    );
-            console.log('=======================');
+            console.log('======================='.bgCyan);
+            console.log('   Tabla del:'.bgCyan, base    );
+            console.log('======================='.bgCyan);
         }
         let salida = '';
     
-        for( let i = 1; i <= 10; i++ ) {
+        for( let i = 1; i <= hasta; i++ ) {
             salida += `${ base } x ${ i } = ${ base * i }\n`;
         }
         

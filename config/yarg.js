@@ -11,6 +11,12 @@ const argv = require('yargs')
                 default: false,
                 describe: 'Muestra la tabla en consola'
             })
+            .option('h', {
+                alias: 'hasta',
+                type: 'number',
+                demandOption: false,
+                describe: 'Es la cantida limite para armar la tabla'
+            })
             .check( (argv, options) => {
                 if( isNaN(argv.b) ){
                     throw 'La base tiene que ser un número'
